@@ -8,10 +8,6 @@ class Dani(wpilib.TimedRobot):
         This function is called upon program startup and
         should be used for any initialization code.
         """
-        print("hello from setup")
-        # self.left_motor = wpilib.Spark(0)
-        # self.right_motor = wpilib.Spark(1)
-        # self.drive = wpilib.drive.DifferentialDrive(self.left_motor, self.right_motor)
         self.spark = wpilib.Spark(1)
         self.sparkt = wpilib.Spark(0)
         self.stick = wpilib.Joystick(0)
@@ -24,8 +20,6 @@ class Dani(wpilib.TimedRobot):
 
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
-
-        # Drive for two seconds
         if self.timer.get() < 2.0:
             self.drive.arcadeDrive(-0.5, -0.5)  # Drive forwards at half speed
         else:
