@@ -3,8 +3,10 @@ import wpilib.drive
 import cv2
 import numpy as np
 from networktables import NetworkTables
+import ntcore
 
 class Dani(wpilib.TimedRobot):
+    
     def robotInit(self):
         """
         This function is called upon program startup and
@@ -14,6 +16,8 @@ class Dani(wpilib.TimedRobot):
         self.sparkt = wpilib.Spark(0)
         self.stick = wpilib.Joystick(0)
         self.timer = wpilib.Timer()
+        self.ntinst = ntcore.NetworkTableInstance.getDefault()
+        self.limelightnt = self.ntinst.getTable('limelight')
         
         # self.__nt = NetworkTables.getTable("limelight")
         
@@ -38,17 +42,30 @@ class Dani(wpilib.TimedRobot):
         speed = self.stick.getY()
         self.spark.set(speed)
         self.sparkt.set(speed)
-        table = NetworkTables.getTable("limelight")
+        
+        justpressed = self.stick.getRawButtonPressed(1)
+        pressed = self.stick.getRawButton(1)
+        # inst = ntcore.NetworkTableInstance.getDefault()
+        # table = inst.getTable("limelight")
+        table = self.limelightnt
 
         tx = table.getNumber('tx',None)
         ty = table.getNumber('ty',None)
         ta = table.getNumber('ta',None)
         ts = table.getNumber('ts',None)
         tl = table.getNumber('tl',"lol fail")
+        tlong = table.getNumber('tlong', "stupid face stupid")
         
-        print(tx,ty,ta,ts,tl)
+        print(tx,ty,ta,ts,tl,tlong)
+        print(table.getKeys())
 
         print(f"x:{self.stick.getX()} y:{self.stick.getY()}")
+        self.limelightnt.putNumber('ledMode', 3 if pressed else 1)
+        # print(inst.getTable("limelight").getNumber('ledMode', "lol nothin"))
+        # inst.getTable("limelight").putNumber('ledMode',0)
+        # print(inst.getTable("limelight").getNumber('ledMode', "lol still nothin"))
+        print("\n\n")
+        
 
     # runPipeline() is called every frame by Limelight's backend.
     # def runPipeline(image):
