@@ -1,3 +1,4 @@
+import wpimath
 import wpilib
 import wpilib.drive
 import cv2
@@ -12,8 +13,9 @@ class Dani(wpilib.TimedRobot):
         This function is called upon program startup and
         should be used for any initialization code.
         """
-        self.spark = wpilib.Spark(1)
-        self.sparkt = wpilib.Spark(0)
+        self.can = wpilib.Talon()
+        self.spark = wpilib.Spark(0)
+        self.sparkt = wpilib.Spark(1)
         self.stick = wpilib.Joystick(0)
         self.timer = wpilib.Timer()
         self.ntinst = ntcore.NetworkTableInstance.getDefault()
@@ -40,8 +42,12 @@ class Dani(wpilib.TimedRobot):
         # self.left_motor.set(1)
         #self.drive.arcadeDrive(self.stick.getY(), self.stick.getX())
         speed = self.stick.getY()
-        self.spark.set(speed)
-        self.sparkt.set(speed)
+        if speed != 0 and self.stick.getRawButtonPressed(1):
+            signum = speed / abs(speed)
+            speed = (speed * speed) * signum
+        else:  
+            self.spark.set(speed)
+            self.sparkt.set(speed)
         
         justpressed = self.stick.getRawButtonPressed(1)
         pressed = self.stick.getRawButton(1)
