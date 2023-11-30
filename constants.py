@@ -1,4 +1,7 @@
-Robot = {
+from utils.DotDict import DotDict
+
+
+Robot = DotDict({
     "controllers": {
         "driver": {
             "joystick": 0
@@ -14,4 +17,4 @@ Robot = {
             }
         }
     }
-}
+})

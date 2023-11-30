@@ -19,6 +19,18 @@ juliettes computer: python -m robotpy_installer install install-python
 
 
 for git
+
+Pushing to a branch
 ```git
-pushing to a specific branch =  git push --set-upstream notorigin <Push Name>
+git push --set-upstream notorigin <Branch Name>
+```
+
+Adding all changes
+```git
+git add .
+```
+
+Check status
+```git
+git status
 ```
