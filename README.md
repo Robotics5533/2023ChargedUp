@@ -22,7 +22,7 @@ for git
 
 Pushing to a branch
 ```git
-git push --set-upstream notorigin <Branch Name>
+git push --set-upstream notorigin Branch-Name
 ```
 
 Adding all changes
