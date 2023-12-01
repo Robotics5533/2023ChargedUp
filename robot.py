@@ -4,6 +4,7 @@ from wpilib.drive import DifferentialDrive
 import ntcore
 from constants import *
 from utils.math import calculate_direction
+import ctre
 
 
 class Dani(wpilib.TimedRobot):
@@ -22,6 +23,7 @@ class Dani(wpilib.TimedRobot):
         self.drive = DifferentialDrive(self.left, self.right)
         self.drive.setExpiration(0.4)
         self.stick = wpilib.Joystick(Robot.controllers.driver.joystick)
+        self.motor1 = ctre.WPI_TalonSRX(1)
         # self.ntinst = ntcore.NetworkTableInstance.getDefault()
         # self.limelightnt = self.ntinst.getTable('limelight')
         # self.__nt = NetworkTables.getTable("limelight")
@@ -40,8 +42,9 @@ class Dani(wpilib.TimedRobot):
 
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
-        x, y, z = self.stick.getX(), self.stick.getY(), self.stick.getZ(), 
-        self.drive.tankDrive(calculate_direction(1, x, y, z), calculate_direction(0, x, y, z))
+        #x, y, z = self.stick.getX(), self.stick.getY(), self.stick.getZ(), 
+        #self.drive.tankDrive(calculate_direction(1, x, y, z), calculate_direction(0, x, y, z))
+        self.motor1.set(0.5)
 
 
 if __name__ == "__main__":

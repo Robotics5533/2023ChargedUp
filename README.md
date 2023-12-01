@@ -2,7 +2,7 @@
 Our robotics code for the 2023 FRC season charged up
 
 >:3
-```py
+```bash
 # Deploy
 py -3 robot.py deploy --nc
 
@@ -21,16 +21,16 @@ juliettes computer: python -m robotpy_installer install install-python
 for git
 
 Pushing to a branch
-```git
+```bash
 git push --set-upstream notorigin Branch-Name
 ```
 
 Adding all changes
-```git
+```bash
 git add .
 ```
 
 Check status
-```git
+```bash
 git status
 ```
