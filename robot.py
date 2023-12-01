@@ -3,6 +3,7 @@ import wpilib.drive
 from wpilib.drive import DifferentialDrive
 import ntcore
 from constants import *
+from utils.math import calculate_direction
 
 
 class Dani(wpilib.TimedRobot):
@@ -39,8 +40,8 @@ class Dani(wpilib.TimedRobot):
 
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
-        # self.drive.tankDrive(self.stick.getY(), -self.stick.getY())
-        self.drive.tankDrive(self.stick.getX(), self.stick.getX())
+        x, y, z = self.stick.getX(), self.stick.getY(), self.stick.getZ(), 
+        self.drive.tankDrive(calculate_direction(1, x, y, z), calculate_direction(0, x, y, z))
 
 
 if __name__ == "__main__":
