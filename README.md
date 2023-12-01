@@ -13,7 +13,6 @@ py -3 -m robotpy_installer download <module name>
 
 # Install - disconnect from WiFi
 py -3 -m robotpy_installer install <module name>
-juliettes computer: python -m robotpy_installer install install-python
 ```
 
 
@@ -34,3 +33,10 @@ Check status
 ```bash
 git status
 ```
+
+
+Install ctre(used for can falcons(the drive of good))
+```bash
+pip install robotpy[ctre]
+```
+see push and download for getting on robot
