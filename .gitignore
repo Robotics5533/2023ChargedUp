@@ -3,3 +3,5 @@
 .installer_config
 __pycache__/
 utils/__pycache__/
+__pycache__/
+*.py[cod]
