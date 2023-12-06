@@ -1,23 +1,15 @@
 import wpilib
 import wpilib.drive
-import ntcore
-from Drive.driveClass import Drive
+from driveClass import UwUTankDrive
 from constants import *
-from utils.math import calculate_direction
-import ctre
-
-
 class Dani(wpilib.TimedRobot):
     def robotInit(self):
         """
         This function is called upon program startup and
         should be used for any initialization code.
         """
-        # self.motor1 = ctre.WPI_TalonSRX(1)
-        # self.drive.setExpiration(0.2)
-        # self.drive.setSafetyEnabled(True)
-        # self.drive.feed()
-        self.drive = Drive("tank")
+        self.drive = UwUTankDrive([0, 1], [2, 3])
+        self.stick = wpilib.Joystick(0)
 
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
