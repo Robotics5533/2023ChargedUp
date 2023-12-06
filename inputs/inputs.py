@@ -1,4 +1,5 @@
 inputmap = {
+    
 }
 def is_action(action):
     for event in inputmap[action]:

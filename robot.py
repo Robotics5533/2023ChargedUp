@@ -19,7 +19,6 @@ class Dani(wpilib.TimedRobot):
         # self.drive.feed()
         self.drive = Drive("tank")
 
-
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
         self.timer.reset()
