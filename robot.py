@@ -11,25 +11,25 @@ from constants import *
 
 class Dani(wpilib.TimedRobot):
     def robotInit(self):
-        """
-        This function is called upon program startup and
-        should be used for any initialization code.
-        """
-        self.drive = UwUMecanumDrive(3, 4, 7, 8)
-        #self.drive = UwUTankDrive([wpilib.Talon(0)], [wpilib.Talon(1)])
+        
+        #This function is called upon program startup and
+        #should be used for any initialization code.
+        
+        self.drive = UwUMecanumDrive(3, 4, -3, -4)
+        #self.drive = UwUTankDrive([wpilib.Talon(1)], [wpilib.Talon(2)])
         self.stick = wpilib.Joystick(0)
         
         
         
     def autonomousInit(self):
-        """This function is run once each time the robot enters autonomous mode."""
+        #This function is run once each time the robot enters autonomous mode.
         self.timer.reset()
         self.timer.start()
 
 
 
     def autonomousPeriodic(self):
-        """This function is called periodically during autonomous."""
+        #This function is called periodically during autonomous.
         if self.timer.get() < 2.0:
             self.drive.move(self.stick.getRawAxis(0), self.stick.getRawAxis(1))
               # Drive forwards at half speed
@@ -40,7 +40,7 @@ class Dani(wpilib.TimedRobot):
 
 
     def teleopPeriodic(self):
-        """This function is called periodically during operator control."""
+        #This function is called periodically during operator control.
         x, y, z = self.stick.getX(), self.stick.getY(), self.stick.getZ(), 
         self.drive.move(x, y, z)
 

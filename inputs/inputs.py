@@ -8,8 +8,7 @@ def is_action(action):
 class Inputs:
     def getValue():
         return False
-class JoyInput(Inputs):
-    pass 
+class JoyInput(Inputs): 
     def __init__(self, joystick, button) -> None:
         super().__init__()
         self.joystick = joystick
