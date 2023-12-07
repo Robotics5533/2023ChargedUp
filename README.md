@@ -40,3 +40,8 @@ Install ctre(used for can falcons(the drive of good))
 py -3 -m pip install robotpy[ctre]
 ```
 see push and download for getting on robot
+
+
+
+# Source for CAN network.
+https://docs.ctre-phoenix.com/en/stable/ch08_BringUpCAN.html
