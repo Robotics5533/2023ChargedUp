@@ -23,7 +23,7 @@ Pushing to a branch
 ```bash
 git push --set-upstream notorigin Branch-Name
 ```
-
+qaq
 Adding all changes
 ```bash
 git add .
@@ -37,6 +37,6 @@ git status
 
 Install ctre(used for can falcons(the drive of good))
 ```bash
-pip install robotpy[ctre]
+py -3 -m pip install robotpy[ctre]
 ```
 see push and download for getting on robot
