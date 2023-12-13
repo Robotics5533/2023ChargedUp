@@ -4,19 +4,14 @@ from driveClass import UwUTankDrive, UwUMecanumDrive
 from constants import *
 
 
-
-
-
-
-
 class Dani(wpilib.TimedRobot):
     def robotInit(self):
         
         #This function is called upon program startup and
         #should be used for any initialization code.
         
-        self.drive = UwUMecanumDrive(3, 4, -3, -4)
-        #self.drive = UwUTankDrive([wpilib.Talon(1)], [wpilib.Talon(2)])
+        self.drive = UwUMecanumDrive(1,2,3,4)
+        #self.drive = UwUTankDrive([wpilib.Talon(1)], [wpilib.Talon(0)])
         self.stick = wpilib.Joystick(0)
         
         
@@ -25,7 +20,7 @@ class Dani(wpilib.TimedRobot):
         #This function is run once each time the robot enters autonomous mode.
         self.timer.reset()
         self.timer.start()
-
+ 
 
 
     def autonomousPeriodic(self):
@@ -48,3 +43,4 @@ class Dani(wpilib.TimedRobot):
      
 if __name__ == "__main__":
     wpilib.run(Dani)
+    
