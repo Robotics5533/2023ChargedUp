@@ -99,7 +99,6 @@ class UwUMecanumDrive:
     
     
     def move(self, x: int, y: int, z: int):
-        print("first", x, y, z)
         
         if not self.deadzone(x, y, z):
     
@@ -109,15 +108,14 @@ class UwUMecanumDrive:
             self.top_right_motor.set(0)
             return
         
-        print("second", x, y, z)
-        x = x/10
-        y = y/10
-        z = z/10
+        x = x*0.5 # strafe left/right
+        y = y*0.5 # forward/back
+        z = z*0.5 # rotation
          
         self.top_left_motor.set(-(-x + y + -z))
         self.top_right_motor.set(x + y + z)
-        self.bottom_left_motor.set(-x + y + z)
-        self.bottom_right_motor.set(-(x + y + -z))
+        self.bottom_left_motor.set(-x + y + z) 
+        self.bottom_right_motor.set(-(x + y + -z)) 
 
         # self.drive.setExpiration(0.2)
         # self.drive.setSafetyEnabled(True)
