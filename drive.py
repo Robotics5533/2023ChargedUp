@@ -1,2 +1,2 @@
-def getMotorDirection(x,y,z,speed):
-    return (x+y+z)*speed
+def getMotorDirection(x, y, z, speed):
+    return (x + y + z) * speed

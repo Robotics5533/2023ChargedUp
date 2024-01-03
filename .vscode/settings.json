@@ -4,6 +4,7 @@
     },
     "python.formatting.provider": "none",
     "python.analysis.extraPaths": [
-        "./components"
+        "./components",
+        "./utils"
     ]
 }
