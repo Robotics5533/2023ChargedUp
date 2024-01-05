@@ -2,6 +2,7 @@ import wpilib
 import wpilib.drive
 from driveClass import UwUTankDrive, UwUMecanumDrive
 from constants import *
+from components.Vision.limelight import UwUlimelight
 
 
 class Dani(wpilib.TimedRobot):
@@ -13,7 +14,8 @@ class Dani(wpilib.TimedRobot):
         self.drive = UwUMecanumDrive(1,2,3,4)
         #self.drive = UwUTankDrive([wpilib.Talon(1)], [wpilib.Talon(0)])
         self.stick = wpilib.Joystick(0)
-        
+        self.limelight = UwUlimelight()
+            
         
         
     def autonomousInit(self):
@@ -38,8 +40,11 @@ class Dani(wpilib.TimedRobot):
         #This function is called periodically during operator control.
         x, y, z = self.stick.getX(), self.stick.getY(), self.stick.getZ(), 
         self.drive.move(x, y, z)
-
-
+        offset = self.limelight.getoffsetUwU()
+        print(offset)
+        self.drive.move(offset[0], offset[1], offset[2])
+        
+        
      
 if __name__ == "__main__":
     wpilib.run(Dani)
