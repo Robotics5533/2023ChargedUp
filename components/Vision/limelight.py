@@ -21,18 +21,12 @@ class UwUlimelight:
         if end_area < start_area:
             self.turn_direction *= -self.rotation_factor
 
-
-
     def get_limelight_arg(self, channel: str, default_value: int = 0):
         return self.limelight_ntable.getNumber(channel, default_value)
-
-
-
-
-
-
+    
     def getoffsetUwU(self):
         if not self.get_limelight_arg("tv", 0):
             return [0, 0, 0]
         else:
-            return [self.get_limelight_arg("tx"), self.get_limelight_arg("ty"), self.apply_turning_error()]
+#            return [self.get_limelight_arg("tx"), self.get_limelight_arg("ty"), self.apply_turning_error()]
+            return [self.get_limelight_arg("tx")/27, self.get_limelight_arg("ty")/20.5, 0/100] # division values come from limelight docs page 12
