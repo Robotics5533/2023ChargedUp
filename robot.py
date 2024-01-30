@@ -42,7 +42,7 @@ class Dani(wpilib.TimedRobot):
         self.drive.move(x, y, z)
         offset = self.limelight.getoffsetUwU()
         print(offset)
-        self.drive.move(offset[0]*0, offset[1]*.5, offset[2]*0)
+        self.drive.move(offset[0]*.5, offset[1]*.5, offset[2]*0)
         
         
      
